@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+require('dotenv').config()
+
 /**********************************************
 * 3. FCC Mongo & Mongoose Challenges
 * ==================================
@@ -5,6 +8,7 @@
 
 /** # MONGOOSE SETUP #
 /*  ================== */
+// console.log(process.env.MONGO_URI) works
 
 /** 1) Install & Set up mongoose */
 
@@ -13,6 +17,7 @@
 // as MONGO_URI. Connect to the database using the following syntax:
 //
 // mongoose.connect(<Your URI>, { useNewUrlParser: true, useUnifiedTopology: true }); 
+mongoose.connect('mongodb+srv://bryanaim:<kingkobra>@cluster0-73kit.mongodb.net/<FCC>?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 
