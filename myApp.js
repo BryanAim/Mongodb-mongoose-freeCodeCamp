@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 require('dotenv').config()
 
 /**********************************************
@@ -17,7 +18,7 @@ require('dotenv').config()
 // as MONGO_URI. Connect to the database using the following syntax:
 //
 // mongoose.connect(<Your URI>, { useNewUrlParser: true, useUnifiedTopology: true }); 
-mongoose.connect('mongodb+srv://bryanaim:<kingkobra>@cluster0-73kit.mongodb.net/<FCC>?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://bryanaim:kingkobra@cluster0-73kit.mongodb.net/freecodecamp?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 
@@ -25,6 +26,7 @@ mongoose.connect('mongodb+srv://bryanaim:<kingkobra>@cluster0-73kit.mongodb.net/
 /*  ====================== */
 
 /** 2) Create a 'Person' Model */
+
 
 // First of all we need a **Schema**. Each schema maps to a MongoDB collection
 // and defines the shape of the documents within that collection. Schemas are
@@ -45,8 +47,15 @@ mongoose.connect('mongodb+srv://bryanaim:<kingkobra>@cluster0-73kit.mongodb.net/
 // `default` values. See the [mongoose docs](http://mongoosejs.com/docs/guide.html).
 
 // <Your code here >
+const personSchema = new Schema({
+  name: { type: String, required: true},
+  age: Number,
+  favoriteFoods: [String]
+});
 
-var Person /* = <Your Model> */
+const Person = mongoose.model('Person', personSchema);
+/* = <Your Model> */
+
 
 // **Note**: Glitch is a real server, and in real servers interactions with
 // the db are placed in handler functions, to be called when some event happens
