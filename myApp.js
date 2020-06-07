@@ -285,8 +285,13 @@ var findAndUpdate = function(personName, done) {
 
 var removeById = function(personId, done) {
   
-  
-  done(null/*, data*/);
+  Person.findByIdAndRemove(personId, function (err, data) {
+    if (err) {
+      return done(err)
+    } else {
+      return done(null, data)
+    }
+  })
     
 };
 
@@ -303,7 +308,13 @@ var removeById = function(personId, done) {
 var removeManyPeople = function(done) {
   var nameToRemove = "Mary";
 
-  done(null/*, data*/);
+  Person.remove({name: nameToRemove}, function (err, data) {
+    if (err) {
+      return done(err)
+    } else {
+      return done(null, data)
+    }
+  })
 };
 
 /** # C[R]UD part V -  More about Queries # 
